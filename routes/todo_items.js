@@ -1,10 +1,13 @@
 const express =require('express')
-const app =express()
+
 const router = express.Router();
+const {getAllToDoItems} = require('../controllers/todo_items')
 
-app.get('/',(request,response)=>
-{
-    response.send('list o fall to-do list');
+router.route('/').get(getAllToDoItems)
+// router.get('/',(request,response)=>
+// {
+//     // response.send('list o fall to-do list');
+//     response.end()
 
-})
-module.exports =app;
+// })
+module.exports =router;

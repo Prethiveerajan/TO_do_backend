@@ -1,13 +1,9 @@
 const express =require('express')
 
 const router = express.Router();
-const {getAllToDoItems} = require('../controllers/todo_items')
+const {getAllToDoItems,createNewToDoItems,getAToDoItem,updateAToDoItems,deleteAToDoItem} = require('../controllers/todo_items')
 
-router.route('/').get(getAllToDoItems)
-// router.get('/',(request,response)=>
-// {
-//     // response.send('list o fall to-do list');
-//     response.end()
+router.route('/').get(getAllToDoItems).post(createNewToDoItems)
+router.route('/:id').get(getAToDoItem).patch(updateAToDoItems)
 
-// })
-module.exports =router;
+module.exports =router;                                                                                              

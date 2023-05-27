@@ -4,6 +4,10 @@ const to_do_list = require('./routes/todo_items')
 const app = express();
 const PORT = 3500;
 
+app.use(express.urlencoded({extended :true}))
+app.use(express.json());
+
+
 app.get('/',(request,response)=>
 {
     response.send('working')
